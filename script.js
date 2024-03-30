@@ -4,6 +4,18 @@ const dialog = document.querySelector('dialog');
 
 const form = document.querySelector('form');
 const cancelBtn = document.querySelector('button#cancel');
+const submitBtn = document.querySelector('button#submit');
+
+const bookTitle = document.querySelector('input#book-title');
+const bookAuthor = document.querySelector('input#book-author');
+const bookPages = document.querySelector('input#book-pages');
+const isBookRead = document.querySelector('input#book-read');
+
+submitBtn.addEventListener('click', () => {
+    if (form.checkValidity()) {
+        console.log("Form is Valid!");
+    }
+})
 
 cancelBtn.addEventListener('click', () => {
     form.reset();
