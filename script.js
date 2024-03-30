@@ -1,4 +1,10 @@
 const bookShelf = document.querySelector('#book-shelf');
+const newBookBtn = document.querySelector('#new-book');
+const dialog = document.querySelector('dialog');
+
+newBookBtn.addEventListener('click', () => {
+    dialog.showModal();
+})
 
 const libraryBooks = [
     {

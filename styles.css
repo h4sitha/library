@@ -3,3 +3,43 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+dialog {
+    width: 275px;
+    position: relative;
+}
+
+dialog input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 4px 6px;
+    margin-top: 6px;
+}
+
+button#submit {
+    width: 100%;
+    padding: 4px;
+}
+
+button#cancel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+button#cancel:hover {
+    background-color: hsl(0, 100%, 65%);
+}
+
+button#cancel:active {
+    background-color: hsl(0, 100%, 40%);
+}
