@@ -49,5 +49,13 @@ button#cancel:active {
     padding: 6px 12px;
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+}
+
+#book-shelf span:not(:first-of-type) {
+    margin-left: 0.5ch;
+}
+
+#book-shelf span:nth-of-type(3) {
+    margin: 0 30px 0 auto;
 }

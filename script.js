@@ -66,7 +66,13 @@ function displayBooks(arr) {
         const div = document.createElement('div');
         for (let key in arr[i]) {
             const span = document.createElement('span');
-            span.textContent = `${arr[i][key]}`;
+            if (key === "pages") {
+                span.textContent = `${arr[i][key]} pages`;
+            } else if (key === "author") {
+                span.textContent = `by ${arr[i][key]}`;
+            } else {
+                span.textContent = `${arr[i][key]}`;
+            }
             div.appendChild(span);
         }
         bookShelf.appendChild(div);
