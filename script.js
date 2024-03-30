@@ -14,6 +14,8 @@ const isBookRead = document.querySelector('input#book-read');
 submitBtn.addEventListener('click', () => {
     if (form.checkValidity()) {
         console.log("Form is Valid!");
+        const isRead = (isBookRead.checked) ? "Yes" : "No";
+        addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
     }
 })
 
@@ -53,8 +55,8 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary() {
-    const newBook = new Book();
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read);
     libraryBooks.push(newBook);
 }
 
