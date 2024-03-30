@@ -1,4 +1,25 @@
-const libraryBooks = [];
+const bookShelf = document.querySelector('#book-shelf');
+
+const libraryBooks = [
+    {
+        title: "The Maze Runner",
+        author: "James Dashner",
+        pages: 371,
+        read: "Yes"
+    },
+    {
+        title: "The Scorch Trials",
+        author: "James Dashner",
+        pages: 359,
+        read: "Yes"
+    },
+    {
+        title: "The Death Cure",
+        author: "James Dashner",
+        pages: 327,
+        read: "Yes"
+    }
+];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -10,4 +31,17 @@ function Book(title, author, pages, read) {
 function addBookToLibrary() {
     const newBook = new Book();
     libraryBooks.push(newBook);
+}
+
+function displayBooks(arr) {
+    bookShelf.textContent = "";
+    for (let i=0; i < arr.length; i++) {
+        const div = document.createElement('div');
+        for (let key in arr[i]) {
+            const span = document.createElement('span');
+            span.textContent = `${arr[i][key]}`;
+            div.appendChild(span);
+        }
+        bookShelf.appendChild(div);
+    }
 }
