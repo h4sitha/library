@@ -17,6 +17,7 @@ submitBtn.addEventListener('click', () => {
         const isRead = (isBookRead.checked) ? "Yes" : "No";
         addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
     }
+    displayBooks(libraryBooks);
 })
 
 cancelBtn.addEventListener('click', () => {
@@ -47,6 +48,8 @@ const libraryBooks = [
         read: "Yes"
     }
 ];
+
+displayBooks(libraryBooks);
 
 function Book(title, author, pages, read) {
     this.title = title;
