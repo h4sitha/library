@@ -2,6 +2,13 @@ const bookShelf = document.querySelector('#book-shelf');
 const newBookBtn = document.querySelector('#new-book');
 const dialog = document.querySelector('dialog');
 
+const form = document.querySelector('form');
+const cancelBtn = document.querySelector('button#cancel');
+
+cancelBtn.addEventListener('click', () => {
+    form.reset();
+})
+
 newBookBtn.addEventListener('click', () => {
     dialog.showModal();
 })
