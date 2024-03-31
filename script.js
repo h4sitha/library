@@ -140,8 +140,12 @@ function changeStatusUpdate() {
 }
 
 function deleteBook(index) {
-    libraryBooks.splice(index, 1);
-    displayBooks(libraryBooks);
+    let currentBook = libraryBooks[index].title;
+    let isSure = prompt(`Are you sure you want to delete "${currentBook}"? Yes or No.`);
+    if (isSure.toLowerCase() === "yes") {
+        libraryBooks.splice(index, 1);
+        displayBooks(libraryBooks);
+    }
 }
 
 Book.prototype.statusChange = function () {
