@@ -11,7 +11,9 @@ const bookAuthor = document.querySelector('input#book-author');
 const bookPages = document.querySelector('input#book-pages');
 const isBookRead = document.querySelector('input#book-read');
 
-dialog.addEventListener('close', () => {
+let deleteBookBtnList;
+
+dialog.addEventListener('close', (e) => {
     if (dialog.returnValue === 'submit') {
         const isRead = (isBookRead.checked) ? "Yes" : "No";
         addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
@@ -81,6 +83,15 @@ function displayBooks(arr) {
         deleteBookBtn.dataset.indexNumber = i;
         div.appendChild(deleteBookBtn);
         bookShelf.appendChild(div);
-        deleteBookBtnList = document.querySelectorAll('#book-shelf button');
     }
+    deleteBookBtnList = document.querySelectorAll('#book-shelf button.X-button');
+    deleteFunctionUpdate();
+}
+
+function deleteFunctionUpdate() {
+    deleteBookBtnList.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            console.log(e.target.dataset.indexNumber);
+        })
+    })
 }
