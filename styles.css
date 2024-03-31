@@ -28,8 +28,8 @@ button#submit {
 
 button#cancel {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 8px;
+    right: 8px;
 }
 
 .X-button {
@@ -83,8 +83,24 @@ button[data-type="status-read"] {
     background-color: green;
 }
 
+button[data-type="status-read"]:hover {
+    background-color: hsl(120, 100%, 30%);
+}
+
+button[data-type="status-read"]:active {
+    background-color: hsl(120, 100%, 20%);
+}
+
 button[data-type="status-notread"] {
     background-color: gray;
+}
+
+button[data-type="status-notread"]:hover {
+    background-color: hsl(0, 0%, 55%);
+}
+
+button[data-type="status-notread"]:active {
+    background-color: hsl(0, 0%, 45%);
 }
 
 button[data-type="status-read"],
@@ -116,7 +132,8 @@ aside {
     padding: 15px;
 }
 
-aside button {
+aside button,
+button#submit {
     width: 100%;
     padding: 6px;
     border: 0;
@@ -126,15 +143,36 @@ aside button {
     border-radius: 5px;
 }
 
-aside button:hover {
+aside button:hover,
+button#submit:hover {
     background-color: hsl(215, 16%, 55%);
 }
 
-aside button:active {
+aside button:active,
+button#submit:active {
     background-color: hsl(215, 16%, 40%);
 }
 
 main {
     background-color: #f1f5f9;
     padding: 15px;
+}
+
+dialog {
+    border: 3px solid #334155;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #cbd5e1;
+}
+
+dialog input {
+    background-color: #f1f5f9;
+    border: 2px solid #334155;
+    border-radius: 3px;
+    outline: 0;
+}
+
+button,
+input[type="checkbox"] {
+    cursor: pointer;
 }
