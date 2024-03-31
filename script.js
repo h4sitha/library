@@ -78,7 +78,9 @@ function displayBooks(arr) {
         const deleteBookBtn = document.createElement('button');
         deleteBookBtn.classList.add("X-button");
         deleteBookBtn.textContent = "Delete";
+        deleteBookBtn.dataset.indexNumber = i;
         div.appendChild(deleteBookBtn);
         bookShelf.appendChild(div);
+        deleteBookBtnList = document.querySelectorAll('#book-shelf button');
     }
 }
