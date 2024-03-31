@@ -14,9 +14,7 @@ const isBookRead = document.querySelector('input#book-read');
 
 dialog.addEventListener('close', (e) => {
     if (dialog.returnValue === 'submit') {
-        const isRead = (isBookRead.checked) ? true : false;
-        console.log(isRead)
-        addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
+        addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isBookRead.checked);
     }
     dialog.returnValue = "default";
     displayBooks(libraryBooks);
@@ -28,34 +26,12 @@ newBookBtn.addEventListener('click', () => {
 })
 
 const libraryBooks = [
-    {
-        title: "The Maze Runner",
-        author: "James Dashner",
-        pages: 371,
-        read: true
-    },
-    {
-        title: "The Scorch Trials",
-        author: "James Dashner",
-        pages: 359,
-        read: false
-    },
-    {
-        title: "The Death Cure",
-        author: "James Dashner",
-        pages: 327,
-        read: true
-    }
+    new Book("The Maze Runner", "James Dashner", 371, true),
+    new Book("The Scorch Trials", "James Dashner", 359, false),
+    new Book("The Death Cure", "James Dashner", 327, true)
 ];
 
 displayBooks(libraryBooks);
-setDefaultBooksPrototype();
-
-function setDefaultBooksPrototype() {
-    for (let i=0; i<libraryBooks.length; i++) {
-        Object.setPrototypeOf(libraryBooks[i], Book.prototype)
-    }
-}
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -123,18 +99,7 @@ function displayBooks(arr) {
 
         bookShelf.appendChild(div);
     }
-    // deleteBookBtnList = document.querySelectorAll('#book-shelf button.X-button');
-    // deleteFunctionUpdate();
 }
-
-// function deleteFunctionUpdate() {
-//     deleteBookBtnList.forEach((button) => {
-//         button.addEventListener('click', (e) => {
-//             let bookIndex = e.target.dataset.indexNumber;
-//             deleteBook(bookIndex);
-//         })
-//     })
-// }
 
 function deleteBook(index) {
     let currentBook = libraryBooks[index].title;
