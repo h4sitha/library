@@ -51,6 +51,13 @@ const libraryBooks = [
 ];
 
 displayBooks(libraryBooks);
+setDefaultBooksPrototype();
+
+function setDefaultBooksPrototype() {
+    for (let i=0; i<libraryBooks.length; i++) {
+        Object.setPrototypeOf(libraryBooks[i], Book.prototype)
+    }
+}
 
 function Book(title, author, pages, read) {
     this.title = title;
