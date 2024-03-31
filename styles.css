@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: hsl(0, 0%, 10%);
 }
 
 * {
@@ -57,10 +58,17 @@ button#cancel {
     margin-bottom: 5px;
     display: flex;
     /* justify-content: space-between; */
+    align-items: center;
 }
 
 #book-shelf span:not(:first-of-type) {
-    margin-left: 0.5ch;
+    margin-left: 0.8ch;
+}
+
+#book-shelf span:nth-of-type(2),
+#book-shelf span:nth-of-type(3) {
+    color: hsla(0, 0%, 0%, 0.5);
+    font-size: 0.85rem;
 }
 
 #book-shelf span:nth-of-type(3) {
