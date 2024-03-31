@@ -69,6 +69,7 @@ function displayBooks(arr) {
     for (let i=0; i < arr.length; i++) {
         const div = document.createElement('div');
         for (let key in arr[i]) {
+            if (arr[i].hasOwnProperty(key)) {
             const span = document.createElement('span');
             if (key === "pages") {
                 span.textContent = `${arr[i][key]} pages`;
@@ -82,6 +83,7 @@ function displayBooks(arr) {
                 span.textContent = `${arr[i][key]}`;
             }
             div.appendChild(span);
+            }
         }
 
         const changeReadStatusBtn = document.createElement('button');
@@ -127,4 +129,8 @@ function changeStatusUpdate() {
 function deleteBook(index) {
     libraryBooks.splice(index, 1);
     displayBooks(libraryBooks);
+}
+
+Book.prototype.statusChange = function () {
+    this.read = !this.read;
 }
