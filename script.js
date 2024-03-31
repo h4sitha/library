@@ -93,6 +93,10 @@ function displayBooks(arr) {
             }
         }
 
+        if (arr[i]["read"]) {
+            div.style.backgroundColor = "hsla(120, 73%, 75%, 0.3)";
+        }
+
         const changeReadStatusBtn = document.createElement('button');
         changeReadStatusBtn.textContent = (arr[i]["read"]) ? "Read" : "Not Read";
         changeReadStatusBtn.classList.add('button-style');
