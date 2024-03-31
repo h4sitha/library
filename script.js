@@ -12,6 +12,7 @@ const bookPages = document.querySelector('input#book-pages');
 const isBookRead = document.querySelector('input#book-read');
 
 let deleteBookBtnList;
+let changeReadStatusBtnList;
 
 dialog.addEventListener('close', (e) => {
     if (dialog.returnValue === 'submit') {
@@ -83,13 +84,14 @@ function displayBooks(arr) {
             div.appendChild(span);
         }
 
-        const changeReadStatus = document.createElement('button');
-        changeReadStatus.textContent = (arr[i]["read"]) ? "Read" : "Not Read";
-        changeReadStatus.classList.add('button-style');
+        const changeReadStatusBtn = document.createElement('button');
+        changeReadStatusBtn.textContent = (arr[i]["read"]) ? "Read" : "Not Read";
+        changeReadStatusBtn.classList.add('button-style');
 
-        changeReadStatus.dataset.type = (arr[i]["read"]) ? "status-read" : "status-notread";
+        changeReadStatusBtn.dataset.type = (arr[i]["read"]) ? "status-read" : "status-notread";
+        changeReadStatusBtn.dataset.indexNumber = i;
 
-        div.appendChild(changeReadStatus);
+        div.appendChild(changeReadStatusBtn);
         
         const deleteBookBtn = document.createElement('button');
         deleteBookBtn.classList.add("X-button", "button-style");
@@ -101,6 +103,8 @@ function displayBooks(arr) {
     }
     deleteBookBtnList = document.querySelectorAll('#book-shelf button.X-button');
     deleteFunctionUpdate();
+    changeReadStatusBtnList = document.querySelectorAll('#book-shelf button:not(.X-button)');
+    changeStatusUpdate();
 }
 
 function deleteFunctionUpdate() {
@@ -108,6 +112,14 @@ function deleteFunctionUpdate() {
         button.addEventListener('click', (e) => {
             let bookIndex = e.target.dataset.indexNumber;
             deleteBook(bookIndex);
+        })
+    })
+}
+
+function changeStatusUpdate() {
+    changeReadStatusBtnList.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            console.log(e.target);
         })
     })
 }
