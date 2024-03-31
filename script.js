@@ -15,7 +15,8 @@ let deleteBookBtnList;
 
 dialog.addEventListener('close', (e) => {
     if (dialog.returnValue === 'submit') {
-        const isRead = (isBookRead.checked) ? "Yes" : "No";
+        const isRead = (isBookRead.checked) ? true : false;
+        console.log(isRead)
         addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
     }
     dialog.returnValue = "default";
@@ -32,19 +33,19 @@ const libraryBooks = [
         title: "The Maze Runner",
         author: "James Dashner",
         pages: 371,
-        read: "Yes"
+        read: true
     },
     {
         title: "The Scorch Trials",
         author: "James Dashner",
         pages: 359,
-        read: "Yes"
+        read: false
     },
     {
         title: "The Death Cure",
         author: "James Dashner",
         pages: 327,
-        read: "Yes"
+        read: true
     }
 ];
 
@@ -72,6 +73,9 @@ function displayBooks(arr) {
                 span.textContent = `${arr[i][key]} pages`;
             } else if (key === "author") {
                 span.textContent = `by ${arr[i][key]}`;
+            } else if (key === "read") {
+                span.textContent = (arr[i][key]) ? "Read" : "Not Read";
+                span.dataset.type = "status"
             } else {
                 span.textContent = `${arr[i][key]}`;
             }
