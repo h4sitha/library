@@ -70,9 +70,16 @@ button#cancel {
     width: 100px;
 }
 
-button[data-type="status-change-btn"] {
+button[data-type="status-read"] {
     background-color: green;
+}
+
+button[data-type="status-notread"] {
+    background-color: gray;
+}
+
+button[data-type="status-read"],
+button[data-type="status-notread"] {
     margin-right: 5px;
     width: 80px;
-    /* padding: 0 10px; */
 }

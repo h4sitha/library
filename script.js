@@ -86,7 +86,9 @@ function displayBooks(arr) {
         const changeReadStatus = document.createElement('button');
         changeReadStatus.textContent = (arr[i]["read"]) ? "Read" : "Not Read";
         changeReadStatus.classList.add('button-style');
-        changeReadStatus.dataset.type = "status-change-btn";
+
+        changeReadStatus.dataset.type = (arr[i]["read"]) ? "status-read" : "status-notread";
+
         div.appendChild(changeReadStatus);
         
         const deleteBookBtn = document.createElement('button');
