@@ -91,7 +91,13 @@ function displayBooks(arr) {
 function deleteFunctionUpdate() {
     deleteBookBtnList.forEach((button) => {
         button.addEventListener('click', (e) => {
-            console.log(e.target.dataset.indexNumber);
+            let bookIndex = e.target.dataset.indexNumber;
+            deleteBook(bookIndex);
         })
     })
+}
+
+function deleteBook(index) {
+    libraryBooks.splice(index, 1);
+    displayBooks(libraryBooks);
 }
