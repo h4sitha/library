@@ -29,6 +29,9 @@ button#cancel {
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.X-button {
     background-color: red;
     color: white;
     font-weight: bold;
@@ -36,11 +39,11 @@ button#cancel {
     border-radius: 5px;
 }
 
-button#cancel:hover {
+.X-button:hover {
     background-color: hsl(0, 100%, 65%);
 }
 
-button#cancel:active {
+.X-button:active {
     background-color: hsl(0, 100%, 40%);
 }
 

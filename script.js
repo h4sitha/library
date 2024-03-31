@@ -75,6 +75,10 @@ function displayBooks(arr) {
             }
             div.appendChild(span);
         }
+        const deleteBookBtn = document.createElement('button');
+        deleteBookBtn.classList.add("X-button");
+        deleteBookBtn.textContent = "Delete";
+        div.appendChild(deleteBookBtn);
         bookShelf.appendChild(div);
     }
 }
