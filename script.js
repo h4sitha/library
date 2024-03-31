@@ -73,19 +73,28 @@ function displayBooks(arr) {
                 span.textContent = `${arr[i][key]} pages`;
             } else if (key === "author") {
                 span.textContent = `by ${arr[i][key]}`;
-            } else if (key === "read") {
-                span.textContent = (arr[i][key]) ? "Read" : "Not Read";
-                span.dataset.type = "status"
-            } else {
+            } 
+            else if (key === "read") {
+                continue;
+            } 
+            else {
                 span.textContent = `${arr[i][key]}`;
             }
             div.appendChild(span);
         }
+
+        const changeReadStatus = document.createElement('button');
+        changeReadStatus.textContent = (arr[i]["read"]) ? "Read" : "Not Read";
+        changeReadStatus.classList.add('button-style');
+        changeReadStatus.dataset.type = "status-change-btn";
+        div.appendChild(changeReadStatus);
+        
         const deleteBookBtn = document.createElement('button');
-        deleteBookBtn.classList.add("X-button");
+        deleteBookBtn.classList.add("X-button", "button-style");
         deleteBookBtn.textContent = "Delete";
         deleteBookBtn.dataset.indexNumber = i;
         div.appendChild(deleteBookBtn);
+        
         bookShelf.appendChild(div);
     }
     deleteBookBtnList = document.querySelectorAll('#book-shelf button.X-button');

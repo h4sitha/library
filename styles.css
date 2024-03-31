@@ -33,6 +33,9 @@ button#cancel {
 
 .X-button {
     background-color: red;
+}
+
+.button-style {
     color: white;
     font-weight: bold;
     border: none;
@@ -65,4 +68,11 @@ button#cancel {
 
 #book-shelf span[data-type="status"] {
     width: 100px;
+}
+
+button[data-type="status-change-btn"] {
+    background-color: green;
+    margin-right: 5px;
+    width: 80px;
+    /* padding: 0 10px; */
 }
