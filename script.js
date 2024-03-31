@@ -70,18 +70,18 @@ function displayBooks(arr) {
         const div = document.createElement('div');
         for (let key in arr[i]) {
             if (arr[i].hasOwnProperty(key)) {
-            const span = document.createElement('span');
-            if (key === "pages") {
-                span.textContent = `${arr[i][key]} pages`;
-            } else if (key === "author") {
-                span.textContent = `by ${arr[i][key]}`;
-            } 
-            else if (key === "read") {
-                continue;
-            } 
-            else {
-                span.textContent = `${arr[i][key]}`;
-            }
+                const span = document.createElement('span');
+                if (key === "pages") {
+                    span.textContent = `${arr[i][key]} pages`;
+                } else if (key === "author") {
+                    span.textContent = `by ${arr[i][key]}`;
+                } 
+                else if (key === "read") {
+                    continue;
+                } 
+                else {
+                    span.textContent = `${arr[i][key]}`;
+                }
             div.appendChild(span);
             }
         }
@@ -122,6 +122,8 @@ function changeStatusUpdate() {
     changeReadStatusBtnList.forEach((button) => {
         button.addEventListener('click', (e) => {
             console.log(e.target);
+            let bookIndexStatus = e.target.dataset.indexNumber;
+            libraryBooks[bookIndexStatus].statusChange();
         })
     })
 }
@@ -133,4 +135,5 @@ function deleteBook(index) {
 
 Book.prototype.statusChange = function () {
     this.read = !this.read;
+    displayBooks(libraryBooks);
 }
