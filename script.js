@@ -11,26 +11,10 @@ const bookAuthor = document.querySelector('input#book-author');
 const bookPages = document.querySelector('input#book-pages');
 const isBookRead = document.querySelector('input#book-read');
 
-// submitBtn.addEventListener('click', () => {
-//     if (form.checkValidity()) {
-//         console.log("Form is Valid!");
-//         const isRead = (isBookRead.checked) ? "Yes" : "No";
-//         addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
-//     }
-//     displayBooks(libraryBooks);
-// })
-
-// cancelBtn.addEventListener('click', () => {
-//     form.reset();
-// })
-
 dialog.addEventListener('close', () => {
     if (dialog.returnValue === 'submit') {
-        console.log("Form is Valid!");
         const isRead = (isBookRead.checked) ? "Yes" : "No";
         addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
-    } else if (dialog.returnValue === 'cancel') {
-        console.log("Canceled!");
     }
     dialog.returnValue = "default";
     displayBooks(libraryBooks);
