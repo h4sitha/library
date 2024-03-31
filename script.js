@@ -104,6 +104,11 @@ function displayBooks(arr) {
         changeReadStatusBtn.dataset.type = (arr[i]["read"]) ? "status-read" : "status-notread";
         changeReadStatusBtn.dataset.indexNumber = i;
 
+        changeReadStatusBtn.addEventListener('click', (e) => {
+            let currentBookIndex = e.target.dataset.indexNumber;
+            console.log(libraryBooks[currentBookIndex].statusChange());
+        })
+
         div.appendChild(changeReadStatusBtn);
         
         const deleteBookBtn = document.createElement('button');
@@ -116,8 +121,8 @@ function displayBooks(arr) {
     }
     deleteBookBtnList = document.querySelectorAll('#book-shelf button.X-button');
     deleteFunctionUpdate();
-    changeReadStatusBtnList = document.querySelectorAll('#book-shelf button:not(.X-button)');
-    changeStatusUpdate();
+    // changeReadStatusBtnList = document.querySelectorAll('#book-shelf button:not(.X-button)');
+    // changeStatusUpdate();
 }
 
 function deleteFunctionUpdate() {
@@ -129,15 +134,15 @@ function deleteFunctionUpdate() {
     })
 }
 
-function changeStatusUpdate() {
-    changeReadStatusBtnList.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            console.log(e.target);
-            let bookIndexStatus = e.target.dataset.indexNumber;
-            libraryBooks[bookIndexStatus].statusChange();
-        })
-    })
-}
+// function changeStatusUpdate() {
+//     changeReadStatusBtnList.forEach((button) => {
+//         button.addEventListener('click', (e) => {
+//             console.log(e.target);
+//             let bookIndexStatus = e.target.dataset.indexNumber;
+//             libraryBooks[bookIndexStatus].statusChange();
+//         })
+//     })
+// }
 
 function deleteBook(index) {
     let currentBook = libraryBooks[index].title;
